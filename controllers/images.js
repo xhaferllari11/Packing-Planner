@@ -10,20 +10,19 @@ function create(req, res) {
     const img = req.body.imgURL;
     app.models.predict('e0be3b9d6a454f0493ac3a30784001ff', img).then(
         function (response) {
-            // initialize empty model
+            // initialize empty object
             let imgObj = {
                 url: img,
                 classification: [],
                 confidence: []
             };
-            // put clarifai data in model and create
+            // put clarifai data in object and create document
             response.outputs[0].data.concepts.forEach(function (d) {
                 imgObj.classification.push(d.name);
                 imgObj.confidence.push(d.value);
             });
             Image.create( imgObj , function(e, image){
                 if (e) res.status(400).json(e);
-                console.log('image',image);
                 res.json(image);
             });
         },
