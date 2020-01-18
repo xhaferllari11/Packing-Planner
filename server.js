@@ -18,6 +18,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 
 app.use('/api/images', require('./routes/api/images'));
+app.use('/api/users', require('./routes/api/users'));
 
 
 
