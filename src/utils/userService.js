@@ -10,10 +10,11 @@ function signup(user) {
   })
   .then(res => {
     if (res.ok) return res.json();
-    // Probably a duplicate email
+    // Probably a duplicate email, or database collapsed.
     throw new Error('Email already taken!');
   })
   .then((token) => {
+      console.log('token',token);
     tokenService.setToken(token.token)
   });
 };
