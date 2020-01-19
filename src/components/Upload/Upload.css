@@ -1,0 +1,10 @@
+.upload-area {
+    height: 200px;
+    display: grid;
+    grid-template-rows: .5fr 4fr;
+    justify-content: center;
+}
+
+.image-info {
+    display: flex;
+}

@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-const DashboardPage = () => {
-
+const DashboardPage = (props) => {
+    console.log('props.',props);
 
 
     return (
