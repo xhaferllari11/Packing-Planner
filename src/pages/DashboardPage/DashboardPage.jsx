@@ -8,8 +8,6 @@ const DashboardPage = () => {
     return (
         <>
             <h1>This is DashboardPage page</h1>
-         
-           
         </>
             )
 }

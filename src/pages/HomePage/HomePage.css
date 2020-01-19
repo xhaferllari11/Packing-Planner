@@ -1,0 +1,10 @@
+.signin-box {
+    margin: auto;
+}
+
+.home-page-container {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    margin: 3px;
+
+}

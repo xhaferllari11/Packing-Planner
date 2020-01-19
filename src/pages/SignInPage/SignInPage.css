@@ -4,4 +4,15 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
+    width: 200px;
+    border-radius: 5%;
+    padding-top: 10%;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    margin: 5px auto;
+  }
+
+  .header-footer-login {
+    margin-bottom: 5%;
   }

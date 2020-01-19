@@ -24,13 +24,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavBar />
-        <div className='container'>
+        < >
           <Route exact path="/" component={HomePage} />
           <Route exaxt path="/dashboard" component={DashboardPage} />
           <Route exact path="/closet" component={ClosetPage} />
           <Route exact path="/signin" component={signInPage} />
           <Route exact path="/signup" component={signUpPage} />
-        </div>
+        </>
       </div>
     );
   }

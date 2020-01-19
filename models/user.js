@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const Image = require('./image');
 
 const Schema = mongoose.Schema;
 
@@ -8,7 +9,11 @@ const SALT_ROUNDS = 6;
 const userSchema = new Schema({
     name: String,
     email: { type: String, required: true, lowercase: true, unique: true },
-    password: String
+    password: String,
+    images: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Image'
+    }]
 }, {
     timestamps: true
 });
