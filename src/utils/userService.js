@@ -27,14 +27,14 @@ function logout(){
   tokenService.removeToken();
 }
 
-function login(creds) {
-  return fetch(BASE_URL + 'login', {
+function signin(creds) {
+  return fetch(BASE_URL + 'signin', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),
     body: JSON.stringify(creds)
   })
   .then(res => {
-    // Valid login if we have a status of 2xx (res.ok)
+    // Valid signin if we have a status of 2xx (res.ok)
     if (res.ok) return res.json();
     throw new Error('Bad Credentials!');
   })
@@ -45,5 +45,5 @@ export default {
   signup,
   getUser,
   logout,
-  login
+  signin
 };

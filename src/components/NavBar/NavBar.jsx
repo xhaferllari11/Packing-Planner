@@ -12,6 +12,7 @@ const NavBar = () => {
             <Link to='/dashboard' className='btn btn-primary'>Dashboard</Link>
             <Link to='/closet' className='btn btn-primary'>Closet</Link>
             <Link to='/signup' className='btn btn-primary'>Sign Up</Link>
+            <Link to='/signin' className='btn btn-primary'>Sign In</Link>
 
         </>
     )
