@@ -25,7 +25,7 @@ class DashboardPage extends React.Component {
         });
         console.log(lat, lon);
         //get weather and suggest items
-        let w = await weatherService.getWeather();
+        let w = await weatherService.getWeather(lat,lon);
         console.log('www', w);
     }
 

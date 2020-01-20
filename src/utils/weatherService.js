@@ -3,7 +3,7 @@ import tokenService from './tokenService';
 const BASE_URL = '/api/weather/';
 
 function getWeather(lat, lon) {
-    console.log('getting weather');
+    console.log('getting weather', lat,lon);
     return fetch(BASE_URL, {
         method: 'post',
         headers: {
