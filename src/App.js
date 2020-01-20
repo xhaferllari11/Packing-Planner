@@ -52,6 +52,7 @@ class App extends React.Component {
           <Route exaxt path="/dashboard"
             render={({ history }) =>
               <DashboardPage
+              {...this.props}
                 history={history}
                 user={this.state.user}
               />}

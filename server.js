@@ -20,7 +20,7 @@ app.use('/api/users', require('./routes/api/users'));
 
 app.use(require('./config/auth'));  //image access requires user signin
 app.use('/api/images', require('./routes/api/images'));
-
+app.use('/api/weather', require('./routes/api/weather'));
 
 
 app.get('/*', function(req, res) {
