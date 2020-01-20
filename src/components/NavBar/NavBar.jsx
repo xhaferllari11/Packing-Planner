@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const NavBar = () => {
+const NavBar = (props) => {
 
 
     return (
@@ -14,7 +14,9 @@ const NavBar = () => {
                 <Link to='/closet' className='btn btn-primary'>Closet</Link>
                 <Link to='/signup' className='btn btn-primary'>Sign Up</Link>
                 <Link to='/signin' className='btn btn-primary'>Sign In</Link>
-                <Link to='/signout' className='btn btn-primary'>Sign Out</Link>
+                <Link to='/' className='btn btn-primary'
+                    onClick={()=>props.handleSignOut()}
+                >Sign Out</Link>
             </nav>
 
         </>

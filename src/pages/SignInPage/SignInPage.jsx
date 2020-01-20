@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './SignInPage.css';
 import userService from '../../utils/userService';
 
-class LoginPage extends Component {
+class SignInPage extends Component {
   
   state = {
     email: '',
@@ -20,10 +20,8 @@ class LoginPage extends Component {
     e.preventDefault();
     try {
       await userService.signin(this.state);
-      // Let <App> know a user has signed up!
-    //   this.props.handleSignIn();
-      // Successfully signed up - show GamePage
-    //   this.props.history.push('/');
+      this.props.handleSignIn(); // assigns user to app state
+      this.props.history.push('/dashboard');
     } catch (err) {
       // Use a modal or toast in your apps instead of alert
       alert('Invalid Credentials!');
@@ -58,4 +56,4 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+export default SignInPage;
