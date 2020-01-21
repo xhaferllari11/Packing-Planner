@@ -16,7 +16,6 @@ async function index(req,res){
             console.log('we2',rawBody);
             res.json(rawBody);
         });
-
 }
 
 module.exports = {

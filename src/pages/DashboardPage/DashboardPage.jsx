@@ -27,8 +27,8 @@ class DashboardPage extends React.Component {
         //get weather and suggest items
         let w = await weatherService.getWeather(lat,lon);
         console.log('www', w);
+        this.setState({weather: w.data});
     }
-
 
 
 
@@ -36,7 +36,11 @@ class DashboardPage extends React.Component {
         return (<>
             <DestinationInput
                 getWeather={this.getWeather} />
-            <Weather />
+            <Weather
+                weather={this.state.weather}
+                destination={this.state.destination}
+                duration={this.state.duration}
+            />
         </>)
     };
 };
