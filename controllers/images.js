@@ -48,17 +48,11 @@ function index(req, res) {
     .populate('images')
     .exec(function(e,u){
         if (e)  res.status(400).json('user does not exit');
-        console.log(u)
+        console.log('u',u)
         const images = u.images
-        console.log(images);
+        console.log('images',images);
         res.json({ images: images });
     });
-
-   
-
-
-
-
 }
 
 module.exports = {

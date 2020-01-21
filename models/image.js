@@ -8,7 +8,8 @@ const imageSchema = new Schema({
     classIndex: {
         type: Number,
         default: 0
-    }
+    },
+    typeWeather: [String]
 },{
     timestamps: true
 });

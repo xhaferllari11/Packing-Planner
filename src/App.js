@@ -5,6 +5,7 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import HomePage from './pages/HomePage/HomePage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
+import TripsPage from './pages/TripsPage/TripsPage';
 import ClosetPage from './pages/ClosetPage/ClosetPage';
 import signUpPage from './pages/SignUpPage/SignUpPage';
 import signInPage from './pages/SignInPage/SignInPage';
@@ -19,18 +20,20 @@ class App extends React.Component {
     super();
     this.state = {
       user: userService.getUser(),
+      items: []
     }
     console.log('userinstate', this.state.user);
-    // this.fk()
+    this.getItems();
   }
-
+  
   componentDidMount() {
     console.log('hitosry', this.props)
   }
-  // async fk(){
-  //   let a = await imageService.index();
-  //   console.log('sl',a);
-  // }
+  async getItems(){
+    let a = await imageService.index();
+    this.setState({items: a.images})
+    console.log('sl',a);
+  }
 
   handleSignIn = () => {
     this.setState({ user: userService.getUser() });
@@ -57,7 +60,21 @@ class App extends React.Component {
                 user={this.state.user}
               />}
           />
-          <Route exact path="/closet" component={ClosetPage} />
+          <Route exaxt path="/trips"
+            render={({ history }) =>
+              <TripsPage
+              {...this.props}
+                history={history}
+                user={this.state.user}
+              />}/>
+          <Route exact path="/closet"
+            render={ ({history}) => 
+              <ClosetPage 
+                {...this.props}
+                history={history}
+                user={this.state.user}
+                items={this.state.items}
+              />}/>
           <Route exact path="/signin" render={({ history }) =>
             <SignInPage
               history={history}

@@ -9,7 +9,7 @@ const Weather = (props) => {
             {props.weather.length ?
                 <div className='weather-cards'>
                     {props.weather.map((w,ind) =>
-                        <div className="col-3 p-1" key={ind}>
+                        <div className="col-2 p-1" key={ind}>
                             <div className="card-body pb-0">
                                 <img className='weather-img' src={`https://www.weatherbit.io/static/img/icons/${w.weather.icon}.png`} alt={w.weather.description} />
                                 <div className="d-flex justify-content-between">
