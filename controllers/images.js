@@ -4,7 +4,14 @@ const Clarifai = require('clarifai');
 
 const app = new Clarifai.App({
     apiKey: process.env.CLARIFAI_KEY
-})
+});
+
+const WandC = {
+    'hot': ['Skirt','Shorts','T-Shirt','Shirt','Polos','Dress'],
+    'cold': ['Blazer','Sweatshirt','Hoodies','Blouse','Jacket','Denim','Coat','Gloves','Cardigan','Jumpsuit','Boots','Tracksuit'],
+    'rainy': ['Rain','Jacket','Umbrella'],
+    'essentials': ['Underwear','Sleepwear','Tights','Leggings','Pants','Jeans','Sneakers']
+}
 
 // have not included case where user uploads a duplicate image
 async function create(req, res) {
@@ -17,12 +24,22 @@ async function create(req, res) {
             let imgObj = {
                 url: img,
                 classification: [],
-                confidence: []
+                confidence: [],
+                typeWeather: []
             };
             // put clarifai data in object and create document
             response.outputs[0].data.concepts.forEach(function (d) {
                 imgObj.classification.push(d.name);
                 imgObj.confidence.push(d.value);
+            });
+            // add typeweather to image obj
+            let mainClassArr = imgObj.classification[0].split(' ');
+            mainClassArr.forEach(function(c){
+                for (const condition in WandC) {
+                    if (WandC[condition].includes(c)){
+                        imgObj.typeWeather.push(condition);
+                    };
+                };
             });
             Image.create(imgObj)
                 .then(function (image) {

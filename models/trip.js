@@ -12,7 +12,8 @@ const tripSchema = new Schema({
     weather: [{
         type: Schema.Types.ObjectId,
         ref: 'Weather'
-    }]
+    }],
+    datetime: String
 },{
     timestamps: true
 });

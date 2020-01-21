@@ -20,13 +20,14 @@ class App extends React.Component {
     super();
     this.state = {
       user: userService.getUser(),
-      items: []
+      items: [],
+      trips: []
     }
     console.log('userinstate', this.state.user);
-    this.getItems();
   }
   
   componentDidMount() {
+    this.getItems();
     console.log('hitosry', this.props)
   }
   async getItems(){
@@ -58,6 +59,7 @@ class App extends React.Component {
               {...this.props}
                 history={history}
                 user={this.state.user}
+                items={this.state.items}
               />}
           />
           <Route exaxt path="/trips"

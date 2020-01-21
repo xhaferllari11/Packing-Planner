@@ -64,19 +64,20 @@ const Upload = () => {
                                     <th scope="col">#</th>
                                     <th scope="col">Classification</th>
                                     <th scope="col">Confidence</th>
+                                    <th scope="col">Official</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>{classified.classification[classified.classIndex]}</td>
-                                    <td>{classified.confidence[classified.classIndex]}</td>
+                                {classified.classification.map((c,ind)=> 
+                                (classified.confidence[ind]>.5) ?
+                                <tr key={ind}>
+                                    <th scope="row">{ind}</th>
+                                    <td>{c}</td>
+                                    <td>{classified.confidence[ind]}</td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                </tr>
+                                :
+                                <tr key={ind}></tr>
+                                )}
                             </tbody>
                         </table>
                     }

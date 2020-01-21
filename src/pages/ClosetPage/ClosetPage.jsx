@@ -12,9 +12,12 @@ const ClosePage = (props) => {
             <Upload />
 
             <h3>All your closet items</h3>
-            {props.items.map( (item,ind) => 
-            <ClosetItem item={item} key={ind}/>
-            )}
+            <div className='closet-items-container'>
+                {props.items.map((item, ind) =>
+                    <ClosetItem item={item} key={ind} />
+                )}
+
+            </div>
         </section>
     )
 }

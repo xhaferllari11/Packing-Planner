@@ -16,6 +16,8 @@ const Weather = (props) => {
                                     <p className="mb-0 h5">{w.low_temp}&deg;</p>
                                     <p className="mb-0 h5">{w.high_temp}&deg;</p>
                                 </div>
+                                <p>precip: {w.precip}</p>
+                                <p>snow: {w.snow_depth}</p>
                                 <p className="mb-0 hour"><small>{w.datetime}</small></p>
                             </div>
                             <hr />
@@ -28,7 +30,7 @@ const Weather = (props) => {
                     )}
                 </div>
                 :
-                <h5>Enter a trip first</h5>
+                <h5>No Weather Available</h5>
             }
 
         </>
