@@ -43,18 +43,11 @@ class DashboardPage extends React.Component {
         // need to only keep days i need
         let startDate = new Date(start);
         let maxDate = new Date(start);
-        console.log(typeof(duration),'dur');
-        console.log(maxDate.getDate(),'getdate');
         maxDate.setDate(maxDate.getDate() + Number(duration));
-
-        console.log(startDate)
-        console.log('3',maxDate)
         let weatherData = w.data.filter(function(weatherDay){
             let day = new Date(weatherDay.valid_date);
-            console.log('d',day);
             return (day > startDate && day < maxDate);
         })
-        console.log(weatherData);
         this.setState({ weather: weatherData }, this.getSuggestions);
     }
 
