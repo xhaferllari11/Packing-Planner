@@ -3,6 +3,7 @@ import DestinationInput from '../../components/DestinationInput/DestinationInput
 import Weather from '../../components/Weather/Weather';
 import weatherService from '../../utils/weatherService';
 import ClosetItem from '../../components/ClosetItem/ClosetItem';
+import tripService from '../../utils/tripService';
 
 class DashboardPage extends React.Component {
 
@@ -13,8 +14,13 @@ class DashboardPage extends React.Component {
             destination: '',
             duration: 1,
             weather: [],
-            suggestedItems: []
+            suggestedItems: [],
+            savedMessage: ''
         }
+    }
+
+    componentDidMount(){
+        // get state from local storage
     }
 
     getWeather = async (lat, lon, destination, duration) => {
@@ -57,6 +63,14 @@ class DashboardPage extends React.Component {
         this.setState({ suggestedItems: suggItems });
     }
 
+    // could run this asyncronously and tell the user we saved it
+    saveTrip = async () => {
+        console.log('click')
+        this.setState({savedMessage:
+            await tripService.create(this.state)});
+    }
+
+
     render() {
         return (<>
             <DestinationInput
@@ -78,6 +92,16 @@ class DashboardPage extends React.Component {
                 <div>
                     <h4>You have no Items fit for this weather</h4>
                 </div>
+            }
+            <button
+                className='btn btn-primary'
+                disabled={(this.state.weather.length === 0)}
+                onClick={this.saveTrip}
+            >Save Trip</button>
+            {this.state.savedMessage ?
+                <p>{this.state.savedMessage}</p>
+                :
+                <p></p>
             }
         </>)
     };

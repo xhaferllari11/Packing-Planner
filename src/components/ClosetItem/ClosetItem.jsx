@@ -10,6 +10,7 @@ const ClosetItem = (props) => {
                     <h2 className="card-title">{props.item.classification[props.item.classIndex]}</h2>
                     <p className="card-text">Suitable for: </p>
                     <a href="#" className="btn btn-info">Item Detail</a>
+                    <a href="#" className="btn-small btn btn-info">Remove</a>
                 </div>
         </div>
         )

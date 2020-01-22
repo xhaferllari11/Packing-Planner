@@ -13,6 +13,10 @@ const userSchema = new Schema({
     images: [{
         type: Schema.Types.ObjectId,
         ref: 'Image'
+    }],
+    trips:[{
+        type: Schema.Types.ObjectId,
+        ref: 'Trip'
     }]
 }, {
     timestamps: true

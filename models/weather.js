@@ -9,7 +9,8 @@ const weatherSchema = new Schema({
     description: String,
     snow_depth: Number,
     clouds: Number,
-    datetime: String
+    datetime: String,
+    ts: Date
 },{
     timestamps: true
 });

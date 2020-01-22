@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const tripSchema = new Schema({
-    location: String,
+    destination: String,
     date: Date,
     duration: Number,
-    packing: [{
+    suggestedItems: [{
         type: Schema.Types.ObjectId,
         ref: 'Image'
     }],

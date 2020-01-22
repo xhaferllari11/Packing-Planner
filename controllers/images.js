@@ -10,7 +10,7 @@ const WandC = {
     'hot': ['Skirt','Shorts','T-Shirt','Shirt','Polos','Dress'],
     'cold': ['Blazer','Sweatshirt','Hoodies','Blouse','Jacket','Denim','Coat','Gloves','Cardigan','Jumpsuit','Boots','Tracksuit'],
     'rainy': ['Rain','Jacket','Umbrella'],
-    'essentials': ['Underwear','Sleepwear','Tights','Leggings','Pants','Jeans','Sneakers']
+    'essentials': ['Underwear','Sleepwear','Tights','Leggings','Pants','Jeans','Sneakers','Panties']
 }
 
 // have not included case where user uploads a duplicate image

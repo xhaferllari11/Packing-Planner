@@ -1,7 +1,10 @@
 .item-card {
     width: 200px;
-    padding: 2px;
+    margin: 2px;
+    background-color: seashell;
 }
 .card-img {
-    /* height: 300px; */
+    max-height: 100px;
+    width: auto;
+    margin: 3px auto auto auto;
 }

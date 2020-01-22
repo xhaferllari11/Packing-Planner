@@ -11,7 +11,7 @@ const Weather = (props) => {
                     {props.weather.map((w,ind) =>
                         <div className="col-2 p-1" key={ind}>
                             <div className="card-body pb-0">
-                                <img className='weather-img' src={`https://www.weatherbit.io/static/img/icons/${w.weather.icon}.png`} alt={w.weather.description} />
+                                <img className='weather-img' src={`https://www.weatherbit.io/static/img/icons/${w.weather ? w.weather.icon : w.icon}.png`} alt={w.weather ? w.weather.description : w.description} />
                                 <div className="d-flex justify-content-between">
                                     <p className="mb-0 h5">{w.low_temp}&deg;</p>
                                     <p className="mb-0 h5">{w.high_temp}&deg;</p>
@@ -23,7 +23,7 @@ const Weather = (props) => {
                             <hr />
                             <div className="card-body pt-0">
                                 <h6 className="font-weight-bold mb-1">{props.destination}</h6>
-                                <p className="mb-0">{w.weather.description}</p>
+                                <p className="mb-0">{w.weather ? w.weather.description : w.description}</p>
                             </div>
                         </div>
 

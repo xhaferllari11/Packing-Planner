@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import './App.css';
 
 import NavBar from './components/NavBar/NavBar';
@@ -13,6 +13,8 @@ import userService from './utils/userService';
 import imageService from './utils/imageService';
 import SignInPage from './pages/SignInPage/SignInPage';
 import SignupPage from './pages/SignUpPage/SignUpPage';
+import tripService from './utils/tripService';
+import TripsDetail from './components/TripDetail/TripDetail';
 
 class App extends React.Component {
 
@@ -25,16 +27,21 @@ class App extends React.Component {
     }
     console.log('userinstate', this.state.user);
   }
-  
+
   componentDidMount() {
     this.getItems();
     console.log('hitosry', this.props)
   }
-  async getItems(){
-    let a = await imageService.index();
-    this.setState({items: a.images})
-    console.log('sl',a);
-  }
+  async getItems() {
+    let itemsObj = await imageService.index();
+    let tripsObj = await tripService.index();
+    console.log('sl', itemsObj);
+    console.log('tirpsobj', tripsObj);
+    this.setState({
+      items: itemsObj.images,
+      trips: tripsObj
+    });
+  };
 
   handleSignIn = () => {
     this.setState({ user: userService.getUser() });
@@ -52,31 +59,45 @@ class App extends React.Component {
         <NavBar handleSignOut={this.handleSignOut} />
         <h6> {this.state.user ? this.state.user._id : 'not signed in'}</h6>
         < >
+        <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exaxt path="/dashboard"
             render={({ history }) =>
               <DashboardPage
-              {...this.props}
+                {...this.props}
                 history={history}
                 user={this.state.user}
                 items={this.state.items}
               />}
           />
+          {/* need to figure out how to put this trips page */}
+          {this.state.trips.map((t, ind) =>
+            <Route key={ind} exaxt path={`/trips/${t._id}`}
+              render={({history}) =>
+                <TripsDetail
+                  {...this.props}
+                  history={history}
+                  user={this.state.user}
+                  trip={t}
+
+                />} />
+          )}
           <Route exaxt path="/trips"
             render={({ history }) =>
               <TripsPage
-              {...this.props}
+                {...this.props}
                 history={history}
                 user={this.state.user}
-              />}/>
+                trips={this.state.trips}
+              />} />
           <Route exact path="/closet"
-            render={ ({history}) => 
-              <ClosetPage 
+            render={({ history }) =>
+              <ClosetPage
                 {...this.props}
                 history={history}
                 user={this.state.user}
                 items={this.state.items}
-              />}/>
+              />} />
           <Route exact path="/signin" render={({ history }) =>
             <SignInPage
               history={history}
@@ -87,6 +108,7 @@ class App extends React.Component {
               history={history}
               handleSignIn={this.handleSignIn}
             />} />
+        </Switch>
         </>
       </div>
     );
