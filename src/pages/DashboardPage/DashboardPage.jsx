@@ -4,6 +4,7 @@ import Weather from '../../components/Weather/Weather';
 import weatherService from '../../utils/weatherService';
 import ClosetItem from '../../components/ClosetItem/ClosetItem';
 import tripService from '../../utils/tripService';
+import tripTokenService from '../../utils/tripTokenService';
 
 class DashboardPage extends React.Component {
 
@@ -15,25 +16,46 @@ class DashboardPage extends React.Component {
             duration: 1,
             weather: [],
             suggestedItems: [],
+            date: '',
             savedMessage: ''
+        };
+    };
+
+    componentDidMount(){
+        let tripInfo = tripTokenService.getToken(this.props.user);
+        console.log('as',tripInfo);
+        if (tripInfo){
+            this.setState(tripInfo);
         }
     }
 
-    componentDidMount(){
-        // get state from local storage
-    }
-
-    getWeather = async (lat, lon, destination, duration) => {
+    getWeather = async (lat, lon, destination, duration, start) => {
         console.log(this);
         this.setState({
             destination: destination,
-            duration: duration
+            duration: duration,
+            date: start
         });
         console.log(lat, lon);
         //get weather and suggest items
         let w = await weatherService.getWeather(lat, lon);
         console.log('www', w);
-        this.setState({ weather: w.data }, this.getSuggestions);
+        // need to only keep days i need
+        let startDate = new Date(start);
+        let maxDate = new Date(start);
+        console.log(typeof(duration),'dur');
+        console.log(maxDate.getDate(),'getdate');
+        maxDate.setDate(maxDate.getDate() + Number(duration));
+
+        console.log(startDate)
+        console.log('3',maxDate)
+        let weatherData = w.data.filter(function(weatherDay){
+            let day = new Date(weatherDay.valid_date);
+            console.log('d',day);
+            return (day > startDate && day < maxDate);
+        })
+        console.log(weatherData);
+        this.setState({ weather: weatherData }, this.getSuggestions);
     }
 
     getSuggestions() {
@@ -60,15 +82,25 @@ class DashboardPage extends React.Component {
                 };
             });
         });
-        this.setState({ suggestedItems: suggItems });
+        this.setState(
+            { suggestedItems: suggItems },
+            function(){
+                tripTokenService.setToken(this.state);
+            });
     }
 
     // could run this asyncronously and tell the user we saved it
     saveTrip = async () => {
         console.log('click')
-        this.setState({savedMessage:
-            await tripService.create(this.state)});
-    }
+        try {
+            let returnMsg = await tripService.create(this.state);
+            this.setState({savedMessage: returnMsg});
+            tripTokenService.removeToken();
+            this.props.history.push('/trips');
+        } catch {
+            console.log('did not not save trip');
+        };
+    };
 
 
     render() {

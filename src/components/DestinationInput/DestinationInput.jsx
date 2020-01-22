@@ -14,7 +14,10 @@ export default function DestinationInput(props) {
     });
 
     // at a later time will incorporate start time
-    // const [start, setStart] = React.useState(Date.now());
+    const today = new Date(Date.now());
+    const maxDate = new Date(today);
+    maxDate.setDate(today.getDate() + 16);
+    const [start, setStart] = React.useState(today.toISOString().slice(0,10));
     const [duration, setDuration] = React.useState(1);
     const [destination,setDestination] = React.useState('');
 
@@ -33,12 +36,22 @@ export default function DestinationInput(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('e',e)
-        props.getWeather(coordinates.lat,coordinates.lng,destination,duration);
+        props.getWeather(coordinates.lat,coordinates.lng,destination,duration,start);
         // send to server and get weather
     }
 
     function isFormInvalid(){
-        return (coordinates.lat && coordinates.lng && duration<17)
+        return (coordinates.lat && coordinates.lng && duration<getMaxDuration())
+    }
+
+    function handleStartChange(e){
+        setStart(e.target.value);
+    }
+
+    function getMaxDuration(){
+        let userStartDate = new Date(start);
+        let diffTime = Math.abs(maxDate - userStartDate);
+        return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     }
 
     console.log('start',duration);
@@ -56,13 +69,9 @@ export default function DestinationInput(props) {
                     <div className='destination-input-area'>
                         <p>Latitude: {coordinates.lat}</p>
                         <p>Longitude: {coordinates.lng}</p>
-
-                        {/*need to persist this*/}
                         <input className='input-destination' {...getInputProps({ placeholder: "Vacation Spot" })} />
-
                         <div>
                             {loading ? <div>...loading</div> : null}
-
                             {suggestions.map(suggestion => {
                                 const style = {
                                     backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
@@ -84,13 +93,28 @@ export default function DestinationInput(props) {
                     className='input-destination' 
                     onChange={setStart}
                 /> */}
-                <label>Duration days</label>
+                <div>
+                    <label>From: </label>
+                <input type="date"
+                    value={start}
+                    className='input-destination'
+                    min={today.toISOString().slice(0,10)}
+                    max={maxDate.toISOString().slice(0,10)}
+                    onChange={handleStartChange}
+                    />
+                    <small>*can only predict 16 day weather</small>
+                    </div>
+
+                <div>
+                <label>Duration (days): </label>
                 <input type="number"
                     value={duration}
                     className='input-destination'
-                    max={16}
+                    max={getMaxDuration()}
                     onChange={handleDurationChange}
                     />
+                </div>
+
                     <button type='submit'
                     disabled={!isFormInvalid()}
                     className='btn btn-primary'>Get Weather and Suggestions</button>
