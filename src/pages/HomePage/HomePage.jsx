@@ -6,8 +6,8 @@ import './HomePage.css';
 const HomePage = () => {
 
     return (
-        <>
-            <h1 style={{paddingBottom: '5%'}}>This is home page</h1>
+        <div className='home-page-container-big'>
+            <h1 className='home-title'>Welcome to Packing Planner</h1>
             <section className='home-page-container'>
                 <div className='vaca-pics'>
                     Pics Here
@@ -16,7 +16,7 @@ const HomePage = () => {
                     <SignInPage />
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 
