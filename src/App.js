@@ -33,23 +33,29 @@ class App extends React.Component {
     console.log('hitosry', this.props)
   }
   async getItems() {
-    let itemsObj = await imageService.index();
-    let tripsObj = await tripService.index();
-    console.log('sl', itemsObj);
-    console.log('tirpsobj', tripsObj);
-    this.setState({
-      items: itemsObj.images,
-      trips: tripsObj
-    });
+    if (this.state.user){
+      let itemsObj = await imageService.index();
+      let tripsObj = await tripService.index();
+      console.log('sl', itemsObj);
+      console.log('tirpsobj', tripsObj);
+      this.setState({
+        items: itemsObj.images,
+        trips: tripsObj
+      });
+    }
   };
 
   handleSignIn = () => {
-    this.setState({ user: userService.getUser() });
+    this.setState({ user: userService.getUser() },this.getItems);
   }
 
   handleSignOut = () => {
     userService.signout();
-    this.setState({ user: null })
+    this.setState({
+      user: null,
+      items: [],
+      trips: []
+    });
     this.props.history.push('/');
   }
 

@@ -28,7 +28,7 @@ class DashboardPage extends React.Component {
         console.log('as',tripInfo);
         if (tripInfo){
             this.setState(tripInfo);
-        }
+        };
     }
 
     getWeather = async (lat, lon, destination, duration, start) => {

@@ -13,9 +13,12 @@ const NavBar = (props) => {
                 <Link to='/closet' className='btn btn-primary'>Closet</Link>
                 <Link to='/signup' className='btn btn-primary'>Sign Up</Link>
                 <Link to='/signin' className='btn btn-primary'>Sign In</Link>
-                <Link to='/' className='btn btn-primary'
+                <span className='navbar-text'>
+                    <Link to='/' className='btn btn-primary'
                     onClick={()=>props.handleSignOut()}
                 >Sign Out</Link>
+                </span>
+                
             </nav>
 
         </>
