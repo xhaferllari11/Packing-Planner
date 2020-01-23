@@ -8,7 +8,7 @@ const TripDetail = (props) => {
         <h4>To {props.trip.destination} on {props.trip.createdAt}</h4>
         <h5>Pack Suggested:</h5>
         {/* styling for closet items container is in dashborad style */}
-        <div className='closet-item-container'>
+        <div className='closet-item-container-trip-detail'>
             {props.trip.suggestedItems.map((item, ind) =>
                 <ClosetItem item={item} key={ind} />)}
         </div>

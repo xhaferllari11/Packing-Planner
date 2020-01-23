@@ -4,37 +4,42 @@ import './Weather.css';
 
 const Weather = (props) => {
     console.log('weather', props.weather);
-    return (
-        <>
-            {props.weather.length ?
-                <div className='weather-cards'>
-                    {props.weather.map((w,ind) =>
-                        <div className="col-2 p-1" key={ind}>
-                            <div className="card-body pb-0">
-                                <img className='weather-img' src={`https://www.weatherbit.io/static/img/icons/${w.weather ? w.weather.icon : w.icon}.png`} alt={w.weather ? w.weather.description : w.description} />
-                                <div className="d-flex justify-content-between">
-                                    <p className="mb-0 h5">{w.low_temp}&deg;</p>
-                                    <p className="mb-0 h5">{w.high_temp}&deg;</p>
-                                </div>
-                                <p>precip: {w.precip}</p>
-                                <p>snow: {w.snow_depth}</p>
-                                <p className="mb-0 hour"><small>{w.datetime}</small></p>
-                            </div>
-                            <hr />
-                            <div className="card-body pt-0">
-                                <h6 className="font-weight-bold mb-1">{props.destination}</h6>
-                                <p className="mb-0">{w.weather ? w.weather.description : w.description}</p>
-                            </div>
-                        </div>
+    return (<div>
+        {props.weather.length ?
+            <div className='weather-cards'>
+                {props.weather.map((w, ind) =>
+                    <div className='weather-card'>
+                        <h5 className='weather-date-display'>{w.datetime.slice(5)}</h5>
+                        <img className='weather-img' src={`https://www.weatherbit.io/static/img/icons/${w.weather ? w.weather.icon : w.icon}.png`} alt={w.weather ? w.weather.description : w.description} />
+                        <h6 className='weather-description'>{w.weather ? w.weather.description : w.description}</h6>
+                        <p className="mb-0 h5">{w.high_temp}&deg;</p>
+                        <p className="mb-0 h5">{w.low_temp}&deg;</p>
+                    </div>
 
-                    )}
-                </div>
-                :
-                <h5>No Weather Available</h5>
-            }
+                    // <div className="col-2 p-1" key={ind}>
+                    //     <div className="card-body pb-0">
+                    //         <img className='weather-img' src={`https://www.weatherbit.io/static/img/icons/${w.weather ? w.weather.icon : w.icon}.png`} alt={w.weather ? w.weather.description : w.description} />
+                    //         <div className="d-flex justify-content-between">
+                    //             <p className="mb-0 h5">{w.low_temp}&deg;</p>
+                    //             <p className="mb-0 h5">{w.high_temp}&deg;</p>
+                    //         </div>
+                    //         <p>precip: {w.precip}</p>
+                    //         <p>snow: {w.snow_depth}</p>
+                    //         <p className="mb-0 hour"><small>{w.datetime}</small></p>
+                    //     </div>
+                    //     <hr />
+                    //     <div className="card-body pt-0">
+                    //         <h6 className="font-weight-bold mb-1">{props.destination}</h6>
+                    //         <p className="mb-0">{w.weather ? w.weather.description : w.description}</p>
+                    //     </div>
+                    // </div>
 
-        </>
-    )
+                )}
+            </div>
+            :
+            <h5></h5>
+        }
+    </div>)
 }
 
 

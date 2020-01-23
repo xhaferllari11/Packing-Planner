@@ -1,0 +1,10 @@
+.closet-item-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cloth-suggestions-dashboard{
+    text-align: center;
+    margin-top: 5%;
+}

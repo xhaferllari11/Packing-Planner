@@ -6,6 +6,8 @@ import ClosetItem from '../../components/ClosetItem/ClosetItem';
 import tripService from '../../utils/tripService';
 import tripTokenService from '../../utils/tripTokenService';
 
+import './DashboardPage.css';
+
 class DashboardPage extends React.Component {
 
     constructor(props) {
@@ -100,29 +102,31 @@ class DashboardPage extends React.Component {
         return (<>
             <DestinationInput
                 getWeather={this.getWeather} />
-            <h2>Weather</h2>
             <Weather
                 weather={this.state.weather}
                 destination={this.state.destination}
                 duration={this.state.duration}
             />
-            <h2>Suggested Clothing</h2>
             {this.state.suggestedItems.length ?
+            <div className='cloth-suggestions-dashboard'>
+                <h2>Suggested Clothing</h2>
                 <div className="closet-item-container">
                     {this.state.suggestedItems.map((item, ind) =>
                         <ClosetItem item={item} key={ind} />
                     )}
                 </div>
+                    <button
+                        className='btn btn-primary'
+                        disabled={(this.state.weather.length === 0)}
+                        onClick={this.saveTrip}
+                    >Save Trip</button>
+
+            </div>
                 :
                 <div>
-                    <h4>You have no Items fit for this weather</h4>
+                    <h4></h4>
                 </div>
             }
-            <button
-                className='btn btn-primary'
-                disabled={(this.state.weather.length === 0)}
-                onClick={this.saveTrip}
-            >Save Trip</button>
             {this.state.savedMessage ?
                 <p>{this.state.savedMessage}</p>
                 :
