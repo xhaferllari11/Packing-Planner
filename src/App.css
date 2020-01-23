@@ -39,4 +39,9 @@ h1 {
 
 .footer{
   text-align: center;
+  background-color: rgba(0, 100, 100, .5);
+}
+.background-for-all{
+  background-color: rgba(132, 234, 238, 0.5);
+  height: 100vh;
 }

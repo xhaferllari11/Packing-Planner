@@ -7,11 +7,9 @@ const HomePage = () => {
 
     return (
         <div className='home-page-container-big'>
-            <h1 className='home-title'>Welcome to Packing Planner</h1>
+            <h1 className='home-title'>Welcome</h1>
             <section className='home-page-container'>
-                <div className='vaca-pics'>
-                    Pics Here
-                </div>
+               
                 <div className='signin-box'>
                     <SignInPage />
                 </div>

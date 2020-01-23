@@ -36,8 +36,8 @@ const Upload = () => {
         marginRight: 2
     }
     return (
-        <>
-            <h4>Upload Pic</h4>
+        <div className='upload-closet-pic-container'>
+            <h4>Upload New Item</h4>
             <div className='upload-area'>
                 <input
                     type='file'
@@ -47,7 +47,7 @@ const Upload = () => {
                 />
                 <div className='image-info'>
                     {loading ? (
-                        <h3>Loading file....</h3>
+                        <h3>Loading....</h3>
                     ) : (
                             <img
                                 src={image}
@@ -83,7 +83,7 @@ const Upload = () => {
                     }
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

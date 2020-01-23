@@ -1,7 +1,21 @@
 .closet-page {
     text-align: center;
+    background-color: rgba(132, 234, 238, 0.5);
 }
 .closet-items-container {
+    padding-top: 5%;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 20%;
+    justify-content: center;
+
+}
+.closet-container{
+    background-image: url('../../images/closet.png');
+    background-size: 100% auto;
+}
+
+.closet-title{
+    color: yellowgreen;
+
 }

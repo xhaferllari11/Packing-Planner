@@ -7,10 +7,8 @@ const ClosetItem = (props) => {
             <div className="item-card">
                 <img className="card-img" src={props.item.url} alt={props.item.classification[props.item.classIndex]} />
                 <div className="card-body">
-                    <h2 className="card-title">{props.item.classification[props.item.classIndex]}</h2>
-                    <p className="card-text">Suitable for: </p>
-                    <a href="#" className="btn btn-info">Item Detail</a>
-                    <a href="#" className="btn-small btn btn-info">Remove</a>
+                    <p className="card-title">{props.item.classification[props.item.classIndex]}</p>
+                    <a href="#" className="btn btn-primary">Detail</a>
                 </div>
         </div>
         )

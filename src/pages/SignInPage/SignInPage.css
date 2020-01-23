@@ -11,6 +11,7 @@
     border-color: black;
     border-width: 2px;
     margin: 5px auto;
+    background-color:rgba(96, 221, 221, 0.75); 
   }
 
   .header-footer-login {

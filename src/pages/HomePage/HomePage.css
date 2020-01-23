@@ -3,17 +3,17 @@
 }
 
 .home-page-container {
-    display: grid;
-    grid-template-columns: 7fr 3fr;
     margin: 3px;
 }
 .home-page-container-big{
-    background: url('../../images/homeBackground.png') no-repeat;
+    background: url('../../images/homeBackground.png') center;
     background-size: cover;
-    text-align: center;
     height: 100vh;
+    text-align: center;
+ 
 }
 
 .home-title{
     padding-bottom: '5%';
+    color: yellowgreen;
 }

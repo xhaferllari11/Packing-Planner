@@ -1,5 +1,5 @@
 .item-card {
-    width: 200px;
+    width: 100px;
     margin: 2px;
     background-color: seashell;
 }
@@ -7,4 +7,7 @@
     max-height: 100px;
     width: auto;
     margin: 3px auto auto auto;
+}
+.card-title {
+    font-size: 11px;
 }

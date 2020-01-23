@@ -58,7 +58,7 @@ class App extends React.Component {
       <div className="App">
         <NavBar handleSignOut={this.handleSignOut} />
         {/* <h6> {this.state.user ? this.state.user._id : 'not signed in'}</h6> */}
-        < >
+        <div className="background-for-all">
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exaxt path="/dashboard"
@@ -109,8 +109,8 @@ class App extends React.Component {
               handleSignIn={this.handleSignIn}
             />} />
         </Switch>
-        </>
-        <footer className='footer'>By Alban Xhaferllari 2020</footer>
+        </div>
+        {/* <footer className='footer'>By Alban Xhaferllari 2020</footer> */}
       </div>
     );
   }
