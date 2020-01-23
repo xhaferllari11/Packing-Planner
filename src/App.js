@@ -78,7 +78,10 @@ class App extends React.Component {
         {/* <h6> {this.state.user ? this.state.user._id : 'not signed in'}</h6> */}
         <div className="background-for-all">
           <Switch>
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/" 
+            render={({history}) => (
+              <HomePage user={this.state.user}/>
+            )}/>
             <Route exaxt path="/dashboard"
               render={({ history }) => (
                 (this.state.user) ?

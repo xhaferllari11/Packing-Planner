@@ -48,7 +48,7 @@ class DashboardPage extends React.Component {
         maxDate.setDate(maxDate.getDate() + Number(duration));
         let weatherData = w.data.filter(function(weatherDay){
             let day = new Date(weatherDay.valid_date);
-            return (day > startDate && day < maxDate);
+            return (day >= startDate && day <= maxDate);
         })
         this.setState({ weather: weatherData }, this.getSuggestions);
     }
