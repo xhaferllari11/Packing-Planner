@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
 
 import NavBar from './components/NavBar/NavBar';
@@ -15,6 +15,7 @@ import SignInPage from './pages/SignInPage/SignInPage';
 import SignupPage from './pages/SignUpPage/SignUpPage';
 import tripService from './utils/tripService';
 import TripsDetail from './components/TripDetail/TripDetail';
+import tripTokenService from './utils/tripTokenService';
 
 class App extends React.Component {
 
@@ -33,7 +34,7 @@ class App extends React.Component {
     console.log('hitosry', this.props)
   }
   async getItems() {
-    if (this.state.user){
+    if (this.state.user) {
       let itemsObj = await imageService.index();
       let tripsObj = await tripService.index();
       console.log('sl', itemsObj);
@@ -46,7 +47,7 @@ class App extends React.Component {
   };
 
   handleSignIn = () => {
-    this.setState({ user: userService.getUser() },this.getItems);
+    this.setState({ user: userService.getUser() }, this.getItems);
   }
 
   handleSignOut = () => {
@@ -56,65 +57,82 @@ class App extends React.Component {
       items: [],
       trips: []
     });
+    tripTokenService.removeToken();
     this.props.history.push('/');
   }
 
   render() {
     return (
       <div className="App">
-        <NavBar handleSignOut={this.handleSignOut} />
+        <NavBar user={this.state.user} handleSignOut={this.handleSignOut} />
         {/* <h6> {this.state.user ? this.state.user._id : 'not signed in'}</h6> */}
         <div className="background-for-all">
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exaxt path="/dashboard"
-            render={({ history }) =>
-              <DashboardPage
-                {...this.props}
-                history={history}
-                user={this.state.user}
-                items={this.state.items}
-              />}
-          />
-          {/* need to figure out how to put this trips page */}
-          {this.state.trips.map((t, ind) =>
-            <Route key={ind} exaxt path={`/trips/${t._id}`}
-              render={({history}) =>
-                <TripsDetail
-                  {...this.props}
-                  history={history}
-                  user={this.state.user}
-                  trip={t}
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exaxt path="/dashboard"
+              render={({ history }) => (
+                (this.state.user) ?
+                  <DashboardPage
+                    {...this.props}
+                    history={history}
+                    user={this.state.user}
+                    items={this.state.items}
+                  />
+                  :
+                  <Redirect to='/signin' />
+              )
+              }
+            />
+            {/* need to figure out how to put this trips page  and protect it*/}
+            {this.state.trips.map((t, ind) =>
+              <Route key={ind} exaxt path={`/trips/${t._id}`}
+                render={({ history }) =>
+                  <TripsDetail
+                    {...this.props}
+                    history={history}
+                    user={this.state.user}
+                    trip={t}
 
-                />} />
-          )}
-          <Route exaxt path="/trips"
-            render={({ history }) =>
-              <TripsPage
-                {...this.props}
+                  />} />
+            )}
+            <Route exaxt path="/trips"
+              render={({ history }) => (
+                (this.state.user) ?
+                  <TripsPage
+                    {...this.props}
+                    history={history}
+                    user={this.state.user}
+                    trips={this.state.trips}
+                  />
+                  :
+                  <Redirect to='/signin' />
+              )
+              } />
+
+            <Route exact path="/closet"
+              render={({ history }) => (
+                (this.state.user) ?
+                  <ClosetPage
+                    {...this.props}
+                    history={history}
+                    user={this.state.user}
+                    items={this.state.items}
+                  />
+                  :
+                  <Redirect to='/signin' />
+              )
+              } />
+            <Route exact path="/signin" render={({ history }) =>
+              <SignInPage
                 history={history}
-                user={this.state.user}
-                trips={this.state.trips}
+                handleSignIn={this.handleSignIn}
               />} />
-          <Route exact path="/closet"
-            render={({ history }) =>
-              <ClosetPage
-                {...this.props}
+            <Route exact path="/signup" render={({ history }) =>
+              <SignupPage
                 history={history}
-                user={this.state.user}
-                items={this.state.items}
+                handleSignIn={this.handleSignIn}
               />} />
-          <Route exact path="/signin" render={({ history }) =>
-            <SignInPage
-              history={history}
-              handleSignIn={this.handleSignIn}
-            />} />
-          <Route exact path="/signup" render={({ history }) =>
-            <SignupPage
-              history={history}
-              handleSignIn={this.handleSignIn}
-            />} />
-        </Switch>
+          </Switch>
         </div>
         {/* <footer className='footer'>By Alban Xhaferllari 2020</footer> */}
       </div>
