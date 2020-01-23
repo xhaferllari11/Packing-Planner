@@ -58,7 +58,7 @@ const Upload = () => {
                     {(Object.entries(classified).length === 0 && classified.constructor === Object) ?
                         <h6 style={{display: 'none'}}>Nothing uploaded</h6>
                         :
-                        <table className="table">
+                        <table className="table table-striped classification-table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>

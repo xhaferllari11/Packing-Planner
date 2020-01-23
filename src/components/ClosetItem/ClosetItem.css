@@ -1,7 +1,8 @@
 .item-card {
     width: 100px;
     margin: 2px;
-    background-color: seashell;
+    background-color: rgb(255, 245, 238, .8);
+    border-radius: 5%;
 }
 .card-img {
     max-height: 100px;

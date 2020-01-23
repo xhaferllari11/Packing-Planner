@@ -3,8 +3,19 @@
     display: grid;
     /* grid-template-rows: .5fr 4fr; */
     justify-content: center;
+    margin: 1% 2%;
 }
 
 .image-info {
     display: flex;
+}
+
+.classification-table{
+    background-color: rgb(255, 245, 238, .8);    border-radius: 2%;
+}
+
+@media only screen and (max-width: 600px) {
+    .image-info {
+        flex-direction: column;
+    }
 }
