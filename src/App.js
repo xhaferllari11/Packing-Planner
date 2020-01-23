@@ -108,7 +108,6 @@ class App extends React.Component {
                   <Redirect to='/signin' />
               )
               } />
-
             <Route exact path="/closet"
               render={({ history }) => (
                 (this.state.user) ?
