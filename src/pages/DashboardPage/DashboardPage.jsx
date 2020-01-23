@@ -88,9 +88,11 @@ class DashboardPage extends React.Component {
     saveTrip = async () => {
         console.log('click')
         try {
-            let returnMsg = await tripService.create(this.state);
-            this.setState({savedMessage: returnMsg});
+            let savedTrip = await tripService.create(this.state);
+            // this.setState({savedMessage: returnMsg});
             tripTokenService.removeToken();
+            console.log('savedtrip;',savedTrip);
+            this.props.addTrip(savedTrip);
             this.props.history.push('/trips');
         } catch {
             console.log('did not not save trip');

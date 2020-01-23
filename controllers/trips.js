@@ -23,10 +23,14 @@ async function create(req, res) {
             user.trips.push(t);
             return user.save();
         })
-        .then(function () {
+        .then(function (u) {
             // maybe send all trips back to pupulate sate
             // or just the additional trip
-            res.status(200).json(`Saved trip to ${req.body.destination}`);
+            return Trip.findById(u.trips[u.trips.length-1]).populate('weather').populate('suggestedItems');
+            // res.status(200).json(`Saved trip to ${req.body.destination}`);
+        }).then(function(t){
+            res.status(200).json(t);
+            
         })
         .catch(function (e) {
             res.status(400).json(e);

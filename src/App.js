@@ -61,6 +61,16 @@ class App extends React.Component {
     this.props.history.push('/');
   }
 
+  addTrip = (t) => {
+    if (t) {
+      this.setState((state) => {
+        let trips = state.trips
+        trips.push(t);
+        return {trips: trips}
+      });
+    };
+  };
+
   render() {
     return (
       <div className="App">
@@ -77,6 +87,7 @@ class App extends React.Component {
                     history={history}
                     user={this.state.user}
                     items={this.state.items}
+                    addTrip={this.addTrip}
                   />
                   :
                   <Redirect to='/signin' />
