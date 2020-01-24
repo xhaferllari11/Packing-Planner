@@ -9,7 +9,7 @@ const ClosePage = (props) => {
     return (
         <section className='closet-page'>
             <h1 className='closet-title'>Closet</h1>
-            <Upload />
+            <Upload addItem={props.addItem}/>
 
             <h3>Current Closet</h3>
             <div className='closet-container'>

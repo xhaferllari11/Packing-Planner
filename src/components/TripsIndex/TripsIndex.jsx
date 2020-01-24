@@ -1,7 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+
 const TripsIndex = (props) => {
+
+    function getRandImage(num){
+        // import img from '../../images/touristSites/1.jpeg'
+    }
 
     return (
         <div className="trips-container">
@@ -9,7 +14,7 @@ const TripsIndex = (props) => {
                 <div key={ind} className="col-lg-4 col-sm-6 mb-3">
                     <div className="card h-100">
                         <Link to={`/trips/${t._id}`}>
-                            <img className="card-img-top" src="http://placehold.it/700x400" alt="" />
+                            <img className="card-img-top" src={`../../images/touristSites/2.jpeg`} alt="" />
                         </Link>
                         <div className="card-body">
                             <h4 className="card-title">

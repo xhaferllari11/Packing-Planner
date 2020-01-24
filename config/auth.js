@@ -8,8 +8,8 @@ module.exports = function(req, res, next) {
   // Check for the token, also checks body and query for token
   let token = req.get('Authorization') || req.query.token || req.body.token;
   console.log('token',token);
-  console.log('token1',token.replace('Bearer ', ''));
-  console.log('token2',typeof(token.replace('Bearer ', '')));
+  // console.log('token1',token.replace('Bearer ', ''));
+  // console.log('token2',typeof(token.replace('Bearer ', '')));
 
   if (token) {
     // Remove the 'Bearer ' if it was included in the token header

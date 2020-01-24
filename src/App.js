@@ -66,10 +66,20 @@ class App extends React.Component {
       this.setState((state) => {
         let trips = state.trips
         trips.push(t);
-        return {trips: trips}
+        return {trips: trips};
       });
     };
   };
+
+  addItem = (i) => {
+    if (i) {
+      this.setState((state) => {
+        let items = state.items;
+        items.push(i);
+        return {items:items};
+      })
+    }
+  }
 
   render() {
     return (
@@ -109,7 +119,7 @@ class App extends React.Component {
 
                   />} />
             )}
-            <Route exaxt path="/trips"
+            <Route exact path="/trips"
               render={({ history }) => (
                 (this.state.user) ?
                   <TripsPage
@@ -130,6 +140,7 @@ class App extends React.Component {
                     history={history}
                     user={this.state.user}
                     items={this.state.items}
+                    addItem={this.addItem}
                   />
                   :
                   <Redirect to='/signin' />

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import imageService from '../../utils/imageService';
 import './Upload.css';
+import { PromiseProvider } from 'mongoose';
 
-const Upload = () => {
+const Upload = (props) => {
     const [image, setImage] = useState('');
     const [loading, setLoading] = useState(false);
     const [classified, setClassified] = useState({});
@@ -27,7 +28,8 @@ const Upload = () => {
         console.log(file.secure_url);
         const imgClassified = await imageService.create({ imgURL: file.secure_url });
         console.log('ctype', imgClassified);
-        setClassified(imgClassified)
+        setClassified(imgClassified);
+        props.addItem(imgClassified);
     }
 
     const imageStyle = {
