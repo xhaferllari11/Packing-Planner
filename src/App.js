@@ -26,19 +26,15 @@ class App extends React.Component {
       items: [],
       trips: []
     }
-    console.log('userinstate', this.state.user);
   }
 
   componentDidMount() {
     this.getItems();
-    console.log('hitosry', this.props)
   }
   async getItems() {
     if (this.state.user) {
       let itemsObj = await imageService.index();
       let tripsObj = await tripService.index();
-      console.log('sl', itemsObj);
-      console.log('tirpsobj', tripsObj);
       this.setState({
         items: itemsObj.images,
         trips: tripsObj

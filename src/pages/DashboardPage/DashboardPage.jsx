@@ -86,12 +86,10 @@ class DashboardPage extends React.Component {
 
     // could run this asyncronously and tell the user we saved it
     saveTrip = async () => {
-        console.log('click')
         try {
             let savedTrip = await tripService.create(this.state);
             // this.setState({savedMessage: returnMsg});
             tripTokenService.removeToken();
-            console.log('savedtrip;',savedTrip);
             this.props.addTrip(savedTrip);
             this.props.history.push('/trips');
         } catch {
@@ -103,7 +101,8 @@ class DashboardPage extends React.Component {
     render() {
         return (<>
             <DestinationInput
-                getWeather={this.getWeather} />
+                getWeather={this.getWeather} 
+                user={this.state.user}/>
             <Weather
                 weather={this.state.weather}
                 destination={this.state.destination}

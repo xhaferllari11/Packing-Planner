@@ -59,15 +59,11 @@ async function create(req, res) {
 }
 
 function index(req, res) {
-    console.log('alksd');
-
     User.findById(req.user._id)
     .populate('images')
     .exec(function(e,u){
         if (e)  res.status(400).json('user does not exit');
-        console.log('u',u)
         const images = u.images
-        console.log('images',images);
         res.json({ images: images });
     });
 }
