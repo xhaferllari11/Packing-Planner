@@ -28,6 +28,10 @@ Packing planner will look up the weather at your destination and based on your c
 - Cloundinary API, used for cloud storage services for uploaded closet item images
 - Clarifai API, clarifai's fashion model uses image recognition to identify what closet item the user uploaded. This can then be used to judge what type of weather it is for.
 
+#### ERD
+![ERD](./src/images/ERD.png)
+
+
 ## Getting started
 
 https://trello.com/b/hevnIBTq/packing-plan
