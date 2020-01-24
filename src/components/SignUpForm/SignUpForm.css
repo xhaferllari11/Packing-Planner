@@ -3,6 +3,7 @@
 }
 
 .signup-box-container{
+    margin-top: 2%;
     border: darkcyan solid;
     border-radius: 5%;
     background-color:rgba(96, 221, 221, 0.75); 
