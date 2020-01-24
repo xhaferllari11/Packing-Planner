@@ -8,12 +8,11 @@ import './TripsPage.css'
 const TripsPage = (props) => {
 
     return (<section className='trips-page'>
-        <h1>Trips</h1>
+        <h1 className='trips-title-trip'>Trips</h1>
         <TripsIndex
             {...props}
             history={props.history}
             user={props.user}
-            trips={props.trips}
         />
     </section>)
 }

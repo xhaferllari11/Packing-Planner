@@ -1,6 +1,9 @@
 .trips-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 20px;
+}
+.trips-title-trip{
+    align-self: auto;
 }

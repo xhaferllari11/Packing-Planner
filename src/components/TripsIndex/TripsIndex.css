@@ -1,0 +1,27 @@
+.trips-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.trip-card-container{
+    width: 200px;
+    border: solid blue;
+    border-radius: 2%;
+    margin: 1%;
+    background-color: cadetblue;
+}
+
+.trip-card-image-container{
+    width: auto;
+    height: 150px;
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+.actual-destination-trip{
+    font-size: 16px;
+    font-weight: bold;
+}
+.actual-duration-trip{
+    font-size: 14px;
+}
