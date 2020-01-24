@@ -23,10 +23,10 @@ class DashboardPage extends React.Component {
         };
     };
 
-    componentDidMount(){
+    componentDidMount() {
         let tripInfo = tripTokenService.getToken(this.props.user);
-        console.log('as',tripInfo);
-        if (tripInfo){
+        console.log('as', tripInfo);
+        if (tripInfo) {
             this.setState(tripInfo);
         };
     }
@@ -46,7 +46,7 @@ class DashboardPage extends React.Component {
         let startDate = new Date(start);
         let maxDate = new Date(start);
         maxDate.setDate(maxDate.getDate() + Number(duration));
-        let weatherData = w.data.filter(function(weatherDay){
+        let weatherData = w.data.filter(function (weatherDay) {
             let day = new Date(weatherDay.valid_date);
             return (day >= startDate && day <= maxDate);
         })
@@ -79,7 +79,7 @@ class DashboardPage extends React.Component {
         });
         this.setState(
             { suggestedItems: suggItems },
-            function(){
+            function () {
                 tripTokenService.setToken(this.state);
             });
     }
@@ -101,28 +101,27 @@ class DashboardPage extends React.Component {
     render() {
         return (<>
             <DestinationInput
-                getWeather={this.getWeather} 
-                user={this.state.user}/>
+                getWeather={this.getWeather}
+                user={this.state.user} />
             <Weather
                 weather={this.state.weather}
                 destination={this.state.destination}
                 duration={this.state.duration}
             />
             {this.state.suggestedItems.length ?
-            <div className='cloth-suggestions-dashboard'>
-                <h2>Suggested Clothing</h2>
-                <div className="closet-item-container">
-                    {this.state.suggestedItems.map((item, ind) =>
-                        <ClosetItem item={item} key={ind} />
-                    )}
-                </div>
+                <div className='cloth-suggestions-dashboard'>
+                    <h2>Suggested Clothing</h2>
+                    <div className="closet-item-container">
+                        {this.state.suggestedItems.map((item, ind) =>
+                            <ClosetItem item={item} key={ind} />
+                        )}
+                    </div>
                     <button
                         className='btn btn-primary'
                         disabled={(this.state.weather.length === 0)}
                         onClick={this.saveTrip}
                     >Save Trip</button>
-
-            </div>
+                </div>
                 :
                 <div>
                     <h4></h4>

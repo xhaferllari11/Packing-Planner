@@ -23,7 +23,6 @@ const Weather = (props) => {
     </div>)
 }
 
-
 export default Weather;
 
 // moonrise_ts: 1579604295

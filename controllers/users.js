@@ -1,7 +1,6 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 
-
 function signup(req, res) {
     console.log('came in here');
     let user = new User(req.body);
@@ -11,7 +10,6 @@ function signup(req, res) {
             res.status(401).json(e);
         }
         let token = getJwtToken(u);
-        console.log('oa', token);
         res.json({ token });
     })
 }
@@ -26,7 +24,6 @@ function signin(req, res) {
             }
             if (isMatch) {
                 let token = getJwtToken(u);
-                console.log('cleared', token);
                 res.json({ token });
             } else {
                 res.status(401).json(e);

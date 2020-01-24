@@ -16,17 +16,13 @@ const NavBar = (props) => {
                         onClick={() => props.handleSignOut()}
                     >Sign Out</Link>
                 </span>
-
             </div>
             :
             <div>
                 <Link to='/signup' className='btn btn-primary'>Sign Up</Link>
                 <Link to='/signin' className='btn btn-primary'>Sign In</Link>
-
             </div>
-
         }
-
     </nav>)
 }
 

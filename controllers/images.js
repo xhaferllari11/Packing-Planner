@@ -7,10 +7,10 @@ const app = new Clarifai.App({
 });
 
 const WandC = {
-    'hot': ['Skirt','Shorts','T-Shirt','Shirt','Polos','Dress'],
-    'cold': ['Blazer','Sweatshirt','Hoodies','Blouse','Jacket','Denim','Coat','Gloves','Cardigan','Jumpsuit','Boots','Tracksuit'],
-    'rainy': ['Rain','Jacket','Umbrella'],
-    'essentials': ['Underwear','Sleepwear','Tights','Leggings','Pants','Jeans','Sneakers','Panties']
+    'hot': ['Skirt', 'Shorts', 'T-Shirt', 'Shirt', 'Polos', 'Dress'],
+    'cold': ['Blazer', 'Sweatshirt', 'Hoodies', 'Blouse', 'Jacket', 'Denim', 'Coat', 'Gloves', 'Cardigan', 'Jumpsuit', 'Boots', 'Tracksuit'],
+    'rainy': ['Rain', 'Jacket', 'Umbrella', 'Raincoats'],
+    'essentials': ['Underwear', 'Sleepwear', 'Tights', 'Leggings', 'Pants', 'Jeans', 'Sneakers', 'Panties']
 }
 
 // have not included case where user uploads a duplicate image
@@ -18,8 +18,8 @@ async function create(req, res) {
     const img = req.body.imgURL;
     const user = await User.findById(req.user._id);
     if (!user) res.status(400).json('user not signed in');
-    app.models.predict('e0be3b9d6a454f0493ac3a30784001ff', img).then(
-        function (response) {
+    app.models.predict('e0be3b9d6a454f0493ac3a30784001ff', img)
+        .then(function (response) {
             // initialize empty object
             let imgObj = {
                 url: img,
@@ -34,9 +34,9 @@ async function create(req, res) {
             });
             // add typeweather to image obj
             let mainClassArr = imgObj.classification[0].split(' ');
-            mainClassArr.forEach(function(c){
+            mainClassArr.forEach(function (c) {
                 for (const condition in WandC) {
-                    if (WandC[condition].includes(c)){
+                    if (WandC[condition].includes(c)) {
                         imgObj.typeWeather.push(condition);
                     };
                 };
@@ -51,21 +51,20 @@ async function create(req, res) {
                     res.status(400).json(e);
                 });
         },
-        function (error) {
-            console.log('error: ', error);
-            res.status(400).send(error);
-        }
-    );
+            function (error) {
+                console.log('error: ', error);
+                res.status(400).send(error);
+            });
 }
 
 function index(req, res) {
     User.findById(req.user._id)
-    .populate('images')
-    .exec(function(e,u){
-        if (e)  res.status(400).json('user does not exit');
-        const images = u.images
-        res.json({ images: images });
-    });
+        .populate('images')
+        .exec(function (e, u) {
+            if (e) res.status(400).json('user does not exit');
+            const images = u.images
+            res.json({ images: images });
+        });
 }
 
 module.exports = {

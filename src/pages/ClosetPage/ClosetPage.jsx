@@ -9,8 +9,7 @@ const ClosePage = (props) => {
     return (
         <section className='closet-page'>
             <h1 className='closet-title'>Closet</h1>
-            <Upload addItem={props.addItem}/>
-
+            <Upload addItem={props.addItem} />
             <h3>Current Closet</h3>
             <div className='closet-container'>
                 <div className='closet-items-container'>
@@ -18,7 +17,6 @@ const ClosePage = (props) => {
                         <ClosetItem item={item} key={ind} />
                     )}
                 </div>
-
             </div>
         </section>
     )

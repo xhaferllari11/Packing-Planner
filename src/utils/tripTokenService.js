@@ -1,5 +1,4 @@
 function setToken(tripInfo){
-    console.log('trasp,ind',tripInfo);
     if (tripInfo) {
         localStorage.setItem('trip',JSON.stringify(tripInfo));
     } else {

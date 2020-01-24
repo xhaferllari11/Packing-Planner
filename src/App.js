@@ -31,6 +31,7 @@ class App extends React.Component {
   componentDidMount() {
     this.getItems();
   }
+  
   async getItems() {
     if (this.state.user) {
       let itemsObj = await imageService.index();
@@ -62,7 +63,7 @@ class App extends React.Component {
       this.setState((state) => {
         let trips = state.trips
         trips.push(t);
-        return {trips: trips};
+        return { trips: trips };
       });
     };
   };
@@ -72,7 +73,7 @@ class App extends React.Component {
       this.setState((state) => {
         let items = state.items;
         items.push(i);
-        return {items:items};
+        return { items: items };
       })
     }
   }
@@ -81,13 +82,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavBar user={this.state.user} handleSignOut={this.handleSignOut} />
-        {/* <h6> {this.state.user ? this.state.user._id : 'not signed in'}</h6> */}
         <div className="background-for-all">
           <Switch>
-            <Route exact path="/" 
-            render={({history}) => (
-              <HomePage user={this.state.user}/>
-            )}/>
+            <Route exact path="/"
+              render={({ history }) => (
+                <HomePage user={this.state.user} />
+              )} />
             <Route exaxt path="/dashboard"
               render={({ history }) => (
                 (this.state.user) ?
@@ -96,14 +96,11 @@ class App extends React.Component {
                     history={history}
                     user={this.state.user}
                     items={this.state.items}
-                    addTrip={this.addTrip}
-                  />
+                    addTrip={this.addTrip} />
                   :
                   <Redirect to='/signin' />
-              )
-              }
+              )}
             />
-            {/* need to figure out how to put this trips page  and protect it*/}
             {this.state.trips.map((t, ind) =>
               <Route key={ind} exaxt path={`/trips/${t._id}`}
                 render={({ history }) =>
@@ -112,7 +109,6 @@ class App extends React.Component {
                     history={history}
                     user={this.state.user}
                     trip={t}
-
                   />} />
             )}
             <Route exact path="/trips"
@@ -122,12 +118,10 @@ class App extends React.Component {
                     {...this.props}
                     history={history}
                     user={this.state.user}
-                    trips={this.state.trips}
-                  />
+                    trips={this.state.trips} />
                   :
                   <Redirect to='/signin' />
-              )
-              } />
+              )} />
             <Route exact path="/closet"
               render={({ history }) => (
                 (this.state.user) ?
@@ -136,12 +130,9 @@ class App extends React.Component {
                     history={history}
                     user={this.state.user}
                     items={this.state.items}
-                    addItem={this.addItem}
-                  />
+                    addItem={this.addItem} />
                   :
-                  <Redirect to='/signin' />
-              )
-              } />
+                  <Redirect to='/signin' />)} />
             <Route exact path="/signin" render={({ history }) =>
               <SignInPage
                 history={history}
@@ -154,9 +145,7 @@ class App extends React.Component {
               />} />
           </Switch>
         </div>
-        {/* <footer className='footer'>By Alban Xhaferllari 2020</footer> */}
-      </div>
-    );
+      </div>);
   }
 }
 

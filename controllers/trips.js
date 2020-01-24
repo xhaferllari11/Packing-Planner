@@ -1,6 +1,6 @@
-const User = require('../models/user')
-const Trip = require('../models/trip')
-const Weather = require('../models/weather')
+const User = require('../models/user');
+const Trip = require('../models/trip');
+const Weather = require('../models/weather');
 
 async function create(req, res) {
     //refactor weather for DB
@@ -27,10 +27,8 @@ async function create(req, res) {
             // maybe send all trips back to pupulate sate
             // or just the additional trip
             return Trip.findById(u.trips[u.trips.length-1]).populate('weather').populate('suggestedItems');
-            // res.status(200).json(`Saved trip to ${req.body.destination}`);
         }).then(function(t){
             res.status(200).json(t);
-            
         })
         .catch(function (e) {
             res.status(400).json(e);
@@ -40,20 +38,18 @@ async function create(req, res) {
 function index(req, res) {
     User.findById(req.user._id).
     then(function(u){
-        console.log('u',u);
         return Trip.where('_id')
         .in(u.trips).populate('weather')
         .populate('suggestedItems')
         .sort('date');
     })
     .then(function(trips){
-        console.log('trips',trips);
         res.status(200).json(trips);
     })
     .catch(function(e){
         res.status(400).json(e);
     });
-}
+};
 
 module.exports = {
     create,

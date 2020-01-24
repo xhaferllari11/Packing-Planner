@@ -16,7 +16,6 @@ function create(tripData) {
 };
 
 function index(){
-    console.log('getting trips');
     return fetch(baseURL + '/index',{
         method: 'GET',
         headers: {
@@ -24,7 +23,6 @@ function index(){
             'Authorization': 'Bearer ' + tokenService.getToken()
         }
     }).then(trips => {
-        console.log('b', trips);
         if (trips.ok) return trips.json();
         throw new Error('Could not get trips');
     });

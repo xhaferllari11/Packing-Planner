@@ -55,14 +55,13 @@ const Upload = (props) => {
                 />
                 <div className='image-info'>
                     {loading ? (
-                        <h3>Loading....</h3>
-                    ) : (
-                            <img
-                                src={image}
-                                style={imageStyle}
-                                alt='img upload here'
-                            />
-                        )}
+                        <h3>Loading....</h3>)
+                        :
+                        (<img
+                            src={image}
+                            style={imageStyle}
+                            alt='img upload here'
+                        />)}
                     {(Object.entries(classified).length === 0 && classified.constructor === Object) ?
                         <h6 style={{ display: 'none' }}>Nothing uploaded</h6>
                         :

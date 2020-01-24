@@ -31,8 +31,6 @@ class SignInPage extends Component {
   render() {
     return (
       <div className='login-page-holder'>
-
-
       <div className="LoginPage">
         <header className="header-footer-login">Sign In</header>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
@@ -49,7 +47,6 @@ class SignInPage extends Component {
           <div className="form-group">
             <div className="col-sm-12 text-center">
               <button className="btn btn-default" style={{color: 'green'}}>Sign In</button>&nbsp;&nbsp;&nbsp;
-              
               <Link to='/signup' style={{ textDecoration: 'none', fontSize: 16, color: 'red' }}>Register</Link>
             </div>
           </div>
