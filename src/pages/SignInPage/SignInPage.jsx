@@ -30,6 +30,9 @@ class SignInPage extends Component {
 
   render() {
     return (
+      <div className='login-page-holder'>
+
+
       <div className="LoginPage">
         <header className="header-footer-login">Sign In</header>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
@@ -51,6 +54,7 @@ class SignInPage extends Component {
             </div>
           </div>
         </form>
+      </div>
       </div>
     );
   }

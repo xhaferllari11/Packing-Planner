@@ -10,10 +10,18 @@
     border-style: solid;
     border-color: black;
     border-width: 2px;
-    margin: 5px auto;
+    margin:  auto;
     background-color:rgba(96, 221, 221, 0.75); 
+    
   }
 
-  .header-footer-login {
+.header-footer-login {
     margin-bottom: 5%;
+}
+
+  .login-page-holder{
+padding-top: 2%;
+padding-bottom: 100%;
+background: url('../../images/homeBackground.png') center;
+    background-size: cover;
   }
