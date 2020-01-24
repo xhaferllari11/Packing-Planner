@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import './SignUpForm.css';
 
 class SignupForm extends Component {
 
@@ -39,8 +40,8 @@ class SignupForm extends Component {
 
     render() {
         return (
-            <div>
-                <header className="header-footer">Sign Up</header>
+            <div className='signup-box-container'>
+                <header className="header-footer signup-header">Sign Up</header>
                 <form className="form-horizontal" onSubmit={this.handleSubmit} >
                     <div className="form-group">
                         <div className="col-sm-12">

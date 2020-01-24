@@ -46,3 +46,7 @@ h1 {
   background-repeat: repeat;
   /* background-size: 100%; */
 }
+
+.App{
+  min-height: 100vh;
+}

@@ -41,6 +41,21 @@ https://trello.com/b/hevnIBTq/packing-plan
 - AAU, View my previous trips.
 
 
+## Unsolved Problems
+
+- sometimes authentication fails
+- css
 
 ## Future
 
+- User can override the item classification. This info can then be sent back to Clarifai to improve the fashion model.
+- Add full CRUD for closet items and trips.
+- Find API that gives actual picture of the trip destination and display it.
+- Improve CSS.
+- Improve Machine learning model by incorporating an item identification model before an item recognition model. This way user can take a picture of the entire closet and upload it.
+- Incorporate live camera feed.
+- Allow user to decide luggage size and incorporate size limit into packing suggestion.
+
+
+
+Link: https://packing-plan.herokuapp.com/
