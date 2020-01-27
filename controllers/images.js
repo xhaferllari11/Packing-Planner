@@ -7,7 +7,7 @@ const app = new Clarifai.App({
 });
 
 const WandC = {
-    'hot': ['Skirt', 'Shorts', 'T-Shirt', 'Shirt', 'Polos', 'Dress'],
+    'hot': ['Skirt', 'Shorts', 'T-Shirt', 'Shirt', 'Polos', 'Dress','Sleevless','Sandals'],
     'cold': ['Blazer', 'Sweatshirt', 'Hoodies', 'Blouse', 'Jacket', 'Denim', 'Coat', 'Gloves', 'Cardigan', 'Jumpsuit', 'Boots', 'Tracksuit'],
     'rainy': ['Rain', 'Jacket', 'Umbrella', 'Raincoats'],
     'essentials': ['Underwear', 'Sleepwear', 'Tights', 'Leggings', 'Pants', 'Jeans', 'Sneakers', 'Panties']
