@@ -15,7 +15,7 @@ function signup(req, res) {
 }
 
 function signin(req, res) {
-    let user = User.findOne({ email: req.body.email }, function (e, u) {
+    User.findOne({ email: req.body.email }, function (e, u) {
         if (e) { res.status(401).json(e); }
         //compare pass
         u.comparePassword(req.body.pw, function (e, isMatch) {

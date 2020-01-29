@@ -12,7 +12,10 @@ const HomePage = (props) => {
                 {(props.user) ?
                     <div></div>
                     :
-                    <SignInPage />
+                    <SignInPage 
+                        handleSignIn={props.handleSignIn}
+                        history={props.history}
+                    />
                 }
             </div>
         </section>

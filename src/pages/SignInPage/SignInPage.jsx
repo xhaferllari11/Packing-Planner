@@ -20,7 +20,7 @@ class SignInPage extends Component {
     e.preventDefault();
     try {
       await userService.signin(this.state);
-      this.props.handleSignIn(); // assigns user to app state
+      await this.props.handleSignIn(); // assigns user to app state
       this.props.history.push('/dashboard');
     } catch (err) {
       // Use a modal or toast in your apps instead of alert

@@ -86,7 +86,11 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/"
               render={({ history }) => (
-                <HomePage user={this.state.user} />
+                <HomePage
+                  user={this.state.user}
+                  handleSignIn={this.handleSignIn}
+                  history={history}  
+                />
               )} />
             <Route exaxt path="/dashboard"
               render={({ history }) => (
