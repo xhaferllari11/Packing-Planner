@@ -7,3 +7,10 @@
 .trips-title-trip{
     align-self: auto;
 }
+
+.trips-page{
+    background: url('../../images/tripsBackground1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,6 +1,7 @@
 .closet-page {
     text-align: center;
-    background-color: rgba(132, 234, 238, 0.5);
+    background-image: url('../../images/closetBackground1.jpg');
+    /* background-color: rgba(132, 234, 238, 0.5); */
 }
 .closet-items-container {
     padding-top: 8%;
