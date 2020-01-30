@@ -6,16 +6,19 @@ const Weather = (props) => {
     console.log('weather', props.weather);
     return (<div>
         {props.weather.length ?
+        <div style={{textAlign: 'center', marginTop: 10}}>
+                <h4 style={{margin: 'auto'}}>Predicated Weather:</h4>
             <div className='weather-cards'>
                 {props.weather.map((w, ind) =>
                     <div key={ind} className='weather-card'>
                         <h5 className='weather-date-display'>{w.datetime.slice(5)}</h5>
                         <img className='weather-img' src={`https://www.weatherbit.io/static/img/icons/${w.weather ? w.weather.icon : w.icon}.png`} alt={w.weather ? w.weather.description : w.description} />
                         <h6 className='weather-description'>{w.weather ? w.weather.description : w.description}</h6>
-                        <p className="mb-0 h5">{w.high_temp}&deg;</p>
-                        <p className="mb-0 h5">{w.low_temp}&deg;</p>
+                        <h1 className="mb-0 h5" style={{color: 'blue', paddingTop:5}}>{w.high_temp}&deg;</h1>
+                        <h2 className="mb-0 h5">{w.low_temp}&deg;</h2>
                     </div>
                 )}
+            </div>
             </div>
             :
             <h5></h5>
