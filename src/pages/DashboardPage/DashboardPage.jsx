@@ -99,7 +99,7 @@ class DashboardPage extends React.Component {
 
 
     render() {
-        return (<>
+        return (<div className='dashboard-page-container'>
             <DestinationInput
                 getWeather={this.getWeather}
                 user={this.state.user} />
@@ -132,7 +132,7 @@ class DashboardPage extends React.Component {
                 :
                 <p></p>
             }
-        </>)
+        </div>)
     };
 };
 

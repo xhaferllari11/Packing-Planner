@@ -22,7 +22,6 @@ const Upload = (props) => {
             }
         );
         const file = await res.json();
-
         setImage(file.secure_url);
         setLoading(false);
         const imgClassified = await imageService.create({ imgURL: file.secure_url });

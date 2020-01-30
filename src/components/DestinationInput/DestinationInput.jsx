@@ -57,7 +57,7 @@ export default function DestinationInput(props) {
     console.log('start', duration);
 
     return (<div className='destination-input-area'>
-        <h3>Hi {props.user.name}, where is your next trip?</h3>
+        <h2 style={{paddingTop:5}}>Hi {props.user.name}, where is your next trip?</h2>
         <form onSubmit={handleSubmit} className='destination-input-form'>
             <PlacesAutocomplete
                 value={address}

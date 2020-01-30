@@ -8,3 +8,19 @@
     text-align: center;
     margin-top: 5%;
 }
+
+.dashboard-page-container{
+    display: block;
+}
+
+.dashboard-page-container::after{
+    content: "";
+    background: url('../../images/homeBackground.png');
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+}
