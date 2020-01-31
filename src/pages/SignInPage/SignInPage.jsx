@@ -46,7 +46,7 @@ class SignInPage extends Component {
             </div>
             <div className="form-group">
               <div className="singin-buttons-holder">
-                <button className="btn btn-primary" style={{ color: 'white', width: 90 }}>Sign In</button>&nbsp;&nbsp;&nbsp;
+                <button className="btn btn-success" style={{ color: 'white', width: 90 }}>Sign In</button>&nbsp;&nbsp;&nbsp;
               <Link to='/signup' style={{ textDecoration: 'none', fontSize: 16, color: 'white' }}
                 className='btn-danger  btn'
               >Register</Link>

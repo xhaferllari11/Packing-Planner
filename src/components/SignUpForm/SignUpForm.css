@@ -1,10 +1,17 @@
 .signup-header{
-    margin: 4% auto;
+    margin: 10px auto;
+    text-align: center;
 }
 
 .signup-box-container{
-    margin-top: 2%;
+    margin-top: 20px;
     border: darkcyan solid;
     border-radius: 5%;
-    background-color:rgba(96, 221, 221, 0.75); 
+    background-color:rgba(129, 139, 139, 0.59); 
+    width: 275px;
+}
+
+.signup-buttons-conatiner{
+    display: flex;
+    justify-content: center;
 }
