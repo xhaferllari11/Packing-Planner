@@ -9,6 +9,7 @@
 }
 
 .trips-page{
+    min-height: 1000px;
     background: url('../../images/tripsBackground1.jpg');
     background-position: center;
     background-repeat: no-repeat;
