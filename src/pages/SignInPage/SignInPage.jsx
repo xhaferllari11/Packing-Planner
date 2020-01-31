@@ -4,7 +4,7 @@ import './SignInPage.css';
 import userService from '../../utils/userService';
 
 class SignInPage extends Component {
-  
+
   state = {
     email: '',
     pw: ''
@@ -31,27 +31,29 @@ class SignInPage extends Component {
   render() {
     return (
       <div className='login-page-holder'>
-      <div className="LoginPage">
-        <header className="header-footer-login">Sign In</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+        <div className="LoginPage">
+          <header className="header-footer-login">Sign In</header>
+          <form className="form-horizontal" onSubmit={this.handleSubmit} >
+            <div className="form-group">
+              <div className="col-sm-12">
+                <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+            <div className="form-group">
+              <div className="col-sm-12">
+                <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default" style={{color: 'green'}}>Sign In</button>&nbsp;&nbsp;&nbsp;
-              <Link to='/signup' style={{ textDecoration: 'none', fontSize: 16, color: 'red' }}>Register</Link>
+            <div className="form-group">
+              <div className="singin-buttons-holder">
+                <button className="btn btn-primary" style={{ color: 'white', width: 90 }}>Sign In</button>&nbsp;&nbsp;&nbsp;
+              <Link to='/signup' style={{ textDecoration: 'none', fontSize: 16, color: 'white' }}
+                className='btn-danger  btn'
+              >Register</Link>
+              </div>
             </div>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
       </div>
     );
   }

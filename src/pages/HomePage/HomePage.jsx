@@ -6,7 +6,7 @@ import './HomePage.css';
 const HomePage = (props) => {
 
     return (<div className='home-page-container-big'>
-        <h1 className='home-title'>Welcome</h1>
+        {/* <h1 className='home-title'>Welcome</h1> */}
         <section className='home-page-container'>
             <div className='signin-box'>
                 {(props.user) ?
