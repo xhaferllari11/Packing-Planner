@@ -14,6 +14,10 @@
     background-color: rgb(255, 245, 238, .8);    border-radius: 2%;
 }
 
+.uploaded-image-container{
+    margin-right: 2%;
+}
+
 @media only screen and (max-width: 600px) {
     .image-info {
         flex-direction: column;

@@ -9,6 +9,7 @@ const Upload = (props) => {
     const [classified, setClassified] = useState({});
 
     const uploadImage = async e => {
+        // this should all be in a try catch block
         const files = e.target.files;
         const data = new FormData();
         data.append('file', files[0]);
@@ -26,14 +27,14 @@ const Upload = (props) => {
         setLoading(false);
         const imgClassified = await imageService.create({ imgURL: file.secure_url });
         setClassified(imgClassified);
-        console.log('imgclassi', imgClassified);
         props.addItem(imgClassified);
     }
 
     const imageStyle = {
         width: 200,
         display: image ? image : 'none',
-        marginRight: 2
+        marginRight: 2,
+        height: 'auto'
     }
 
     const handleClassificationClick = (ind) => {
@@ -56,11 +57,13 @@ const Upload = (props) => {
                     {loading ? (
                         <h3>Loading....</h3>)
                         :
-                        (<img
+                        (<div className='uploaded-image-container'>
+                            <img
                             src={image}
                             style={imageStyle}
                             alt='img upload here'
-                        />)}
+                        />
+                        </div>)}
                     {(Object.entries(classified).length === 0 && classified.constructor === Object) ?
                         <h6 style={{ display: 'none' }}>Nothing uploaded</h6>
                         :
