@@ -14,7 +14,9 @@ const TripsIndex = (props) => {
     }
 
     return (
-        <div className="trips-container">
+        <div>
+            {props.trips.length ?
+            <div className="trips-container">
             {props.trips.map((t, ind) =>
                 <div key={ind} className="trip-card-container">
                     <Link to={`/trips/${t._id}`}>
@@ -36,6 +38,10 @@ const TripsIndex = (props) => {
                     </div>
                 </div>
             )}
+            </div>
+            :
+            <p style={{marginTop: 15}}>You have not planned any trips yet. Plan one in dashboard.</p>
+        }
         </div>
     )
 };

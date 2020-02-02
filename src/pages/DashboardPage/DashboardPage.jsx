@@ -32,7 +32,6 @@ class DashboardPage extends React.Component {
     }
 
     getWeather = async (lat, lon, destination, duration, start) => {
-        console.log(this);
         this.setState({
             destination: destination,
             duration: duration,
@@ -41,7 +40,6 @@ class DashboardPage extends React.Component {
         console.log(lat, lon);
         //get weather and suggest items
         let w = await weatherService.getWeather(lat, lon);
-        console.log('www', w);
         // need to only keep days i need
         let startDate = new Date(start);
         let maxDate = new Date(start);
@@ -68,7 +66,6 @@ class DashboardPage extends React.Component {
             'essentials']
         if (avgRain > 10) { conditions.push('rain') }
         // 3. add items that have that classification
-        console.log('items in dash', this.props.items);
         let suggItems = [];
         this.props.items.forEach(item => {
             item.typeWeather.forEach(w => {
@@ -124,7 +121,7 @@ class DashboardPage extends React.Component {
                 </div>
                 :
                 <div>
-                    <h4></h4>
+                    <p>You have no clothing suggestions for this trip.</p>
                 </div>
             }
             {this.state.savedMessage ?

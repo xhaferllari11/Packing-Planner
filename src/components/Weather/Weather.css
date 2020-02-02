@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(199, 223, 114, 0.6);
+    background-color: rgba(93, 101, 168, 0.6);
 }
 .weather-description{
     text-align: center;

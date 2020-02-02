@@ -3,7 +3,6 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    border: cadetblue solid;
     width: 95%;
     margin-top: 2%;
 }
@@ -12,5 +11,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: space-between; */
+    background-image: url('../../images/beachBackground.jpg');
+    background-size: cover;
 }

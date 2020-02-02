@@ -14,7 +14,8 @@ async function create(req, res) {
                 destination: req.body.destination,
                 duration: req.body.duration,
                 weather: weathers,
-                suggestedItems: req.body.suggestedItems
+                suggestedItems: req.body.suggestedItems,
+                date: req.body.date
             });
             return trip.save();
         })
@@ -24,8 +25,7 @@ async function create(req, res) {
             return user.save();
         })
         .then(function (u) {
-            // maybe send all trips back to pupulate sate
-            // or just the additional trip
+            // send added trip back for SPA update
             return Trip.findById(u.trips[u.trips.length-1]).populate('weather').populate('suggestedItems');
         }).then(function(t){
             res.status(200).json(t);

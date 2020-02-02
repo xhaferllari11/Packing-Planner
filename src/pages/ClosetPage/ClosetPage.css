@@ -9,14 +9,15 @@
     flex-wrap: wrap;
     margin: 0 20%;
     justify-content: center;
+    /* min-height: 2000px; */
 
 }
 .closet-container{
     background-image: url('../../images/closet.png');
     background-size: 100% auto;
+    min-height: 772px;
 }
 
 .closet-title{
-    color: yellowgreen;
-
+    color: navy;
 }
