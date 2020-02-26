@@ -9,10 +9,10 @@
     border-radius: 5%;
     padding-top: 20px;
     border-style: solid;
-    border-color: black;
-    border-width: 2px;
+    border-color: darkcyan;
+    border-width: .5px;
     margin:  auto;
-    background-color:rgba(96, 221, 221, 0.4); 
+    background-color:rgba(129, 139, 139, 0.3); 
   }
 
 .header-footer-login {
