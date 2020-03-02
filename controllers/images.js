@@ -7,11 +7,11 @@ const app = new Clarifai.App({
 });
 
 const WandC = {
-    'hot': ['Skirt', 'Shorts', 'T-Shirt', 'Shirt', 'Polos', 'Dress','Sleevless','Sandals'],
+    'hot': ['Skirt', 'Shorts', 'T-Shirt', 'Shirt', 'Polos', 'Dress', 'Sleevless', 'Sandals'],
     'cold': ['Blazer', 'Sweatshirt', 'Hoodies', 'Blouse', 'Jacket', 'Denim', 'Coat', 'Gloves', 'Cardigan', 'Jumpsuit', 'Boots', 'Tracksuit'],
     'rainy': ['Rain', 'Jacket', 'Umbrella', 'Raincoats'],
     'essentials': ['Underwear', 'Sleepwear', 'Tights', 'Leggings', 'Pants', 'Jeans', 'Sneakers', 'Panties']
-}
+};
 
 // have not included case where user uploads a duplicate image
 async function create(req, res) {
@@ -65,7 +65,7 @@ function index(req, res) {
             const images = u.images
             res.json({ images: images });
         });
-}
+};
 
 module.exports = {
     create,

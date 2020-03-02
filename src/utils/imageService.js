@@ -16,7 +16,6 @@ function create(imgURL) {
 };
 
 function index(){
-    console.log('he');
     return fetch(baseURL + '/index',{
         method: 'POST',
         headers: {
@@ -24,7 +23,6 @@ function index(){
             'Authorization': 'Bearer ' + tokenService.getToken()
         }
     }).then(imgs => {
-        console.log('b', imgs);
         if (imgs.ok) return imgs.json();
         throw new Error('Could not get images');
     });
