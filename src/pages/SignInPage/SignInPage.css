@@ -21,10 +21,10 @@
 }
 
 .login-page-holder{
-  padding-top: 2%;
-  padding-bottom: 100%;
+  padding-top: 20px;
+  /* padding-bottom: 100%; 
   background: url('../../images/homeBackground.png') center;
-  background-size: cover;
+  background-size: cover; */
 }
 
 .singin-buttons-holder{

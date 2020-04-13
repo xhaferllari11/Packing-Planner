@@ -4,12 +4,12 @@
 }
 
 .signup-box-container{
-    margin-top: 20px;
     border: darkcyan solid;
     border-radius: 5%;
     border-width: .5px;
     background-color:rgba(129, 139, 139, 0.3); 
     width: 275px;
+    margin: auto;
 }
 
 .signup-buttons-conatiner{

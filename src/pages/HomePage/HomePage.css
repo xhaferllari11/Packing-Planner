@@ -1,18 +1,8 @@
-.signin-box {
-    margin: auto;
-}
 
-.home-page-container {
-
-}
 .home-page-container-big{
-    background: url('../../images/homeBackground.png') center;
+    /* background: url('../../images/homeBackground.png') center;
     background-size: cover;
     height: 100vh;
-    text-align: center;
+    text-align: center; */
 }
 
-.home-title{
-    padding-bottom: '5%';
-    color: rgb(255, 183, 89);
-}

@@ -27,7 +27,7 @@ class App extends React.Component {
       trips: []
     }
   }
-
+  
   componentDidMount() {
     this.getItems();
   }
@@ -42,11 +42,11 @@ class App extends React.Component {
       });
     }
   };
-
+  
   handleSignIn = () => {
     this.setState({ user: userService.getUser() }, this.getItems);
   }
-
+  
   handleSignOut = () => {
     userService.signout();
     this.setState({
@@ -57,7 +57,7 @@ class App extends React.Component {
     tripTokenService.removeToken();
     this.props.history.push('/');
   }
-
+  
   addTrip = (t) => {
     if (t) {
       this.setState((state) => {
@@ -67,7 +67,7 @@ class App extends React.Component {
       });
     };
   };
-
+  
   addItem = (i) => {
     if (i) {
       this.setState((state) => {
@@ -77,12 +77,20 @@ class App extends React.Component {
       })
     }
   }
-
+  
+  
   render() {
+    const backgroundStyle = {
+      backgroundImage: 
+      (this.props.history.location.pathname === '/signup' ||
+      this.props.history.location.pathname === '/signin' ||
+      this.props.history.location.pathname === '/') ?
+      "url(./homeBackground.png)" : ''  //this reads image from public folder. When images read from dynamic data, browser looks is public folder. When read from css file, it is read before transpiled and looks in images folder
+    }
     return (
       <div className="App">
         <NavBar user={this.state.user} handleSignOut={this.handleSignOut} />
-        <div className="background-for-all">
+        <div style={backgroundStyle} className="background-for-all">
           <Switch>
             <Route exact path="/"
               render={({ history }) => (
@@ -148,6 +156,7 @@ class App extends React.Component {
                 handleSignIn={this.handleSignIn}
               />} />
           </Switch>
+          <footer>Alban Xhaferllari</footer>
         </div>
       </div>);
   }

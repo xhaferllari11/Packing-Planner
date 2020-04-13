@@ -1,11 +1,3 @@
 .SignupPage {
-    display: flex;
-    flex-flow: column nowrap;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 50px;
-    background: url('../../images/homeBackground.png') center;
-    background-size: cover;
-    height: 900px;
-    /* margin-left: 50%; */
-  }
+  padding-top: 20px;
+}
