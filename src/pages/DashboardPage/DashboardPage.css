@@ -14,7 +14,7 @@
     background: url('../../images/bagsOnVan.jpeg');
     background-size: cover;
     background-position: center;
-    height: 600px;
+    min-height: 100vh;
 }
 
 .dashboard-page-container::after{
