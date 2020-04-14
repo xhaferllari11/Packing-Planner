@@ -1,13 +1,14 @@
 .signup-header{
     margin: 10px auto;
     text-align: center;
+    font-weight: 600;
 }
 
 .signup-box-container{
     border: darkcyan solid;
     border-radius: 5%;
     border-width: .5px;
-    background-color:rgba(129, 139, 139, 0.3); 
+    background-color:rgba(129, 139, 139, 0.4); 
     width: 275px;
     margin: auto;
 }

@@ -5,7 +5,8 @@
     margin-top: 20px;
 }
 .trips-title-trip{
-    align-self: auto;
+    padding-top: 10px;
+    text-align: center;
 }
 
 .trips-page{
@@ -14,4 +15,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
+    padding-bottom: 2%;
 }

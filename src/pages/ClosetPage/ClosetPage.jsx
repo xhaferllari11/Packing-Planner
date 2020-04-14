@@ -1,6 +1,7 @@
 import React from 'react';
 import ClosetItem from '../../components/ClosetItem/ClosetItem';
 import './ClosetPage.css';
+import Footer from '../../components/Footer/Footer';
 
 import Upload from '../../components/Upload/Upload';
 
@@ -20,6 +21,7 @@ const ClosePage = (props) => {
                     )}
                 </div>
             </div>
+            <Footer />
         </section>
     )
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import Weather from '../Weather/Weather';
 import ClosetItem from '../ClosetItem/ClosetItem';
 import './TripDetail.css'
+import Footer from '../../components/Footer/Footer';
 
 const TripDetail = (props) => {
     console.log(props.trip)
@@ -16,6 +17,7 @@ const TripDetail = (props) => {
         <hr/>
         <h5>Based on this weather:</h5>
         <Weather weather={props.trip.weather} />
+        <Footer/>
     </div>)
 }
 

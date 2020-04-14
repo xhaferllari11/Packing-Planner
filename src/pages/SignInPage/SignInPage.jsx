@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './SignInPage.css';
 import userService from '../../utils/userService';
+import Footer from '../../components/Footer/Footer';
 
 class SignInPage extends Component {
 
@@ -58,6 +59,7 @@ class SignInPage extends Component {
             </div>
           </form>
         </div>
+        <Footer />
       </div>
     );
   }

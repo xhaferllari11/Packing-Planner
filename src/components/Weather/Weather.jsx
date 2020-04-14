@@ -4,7 +4,7 @@ import './Weather.css';
 
 const Weather = (props) => {
     console.log('weather', props.weather);
-    return (<div>
+    return (<div style={{width: '90%'}}>
         {props.weather.length ?
         <div style={{textAlign: 'center', marginTop: 10}}>
                 <h4 style={{margin: 'auto'}}>Predicated Weather:</h4>

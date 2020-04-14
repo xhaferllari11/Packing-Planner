@@ -5,6 +5,7 @@ import weatherService from '../../utils/weatherService';
 import ClosetItem from '../../components/ClosetItem/ClosetItem';
 import tripService from '../../utils/tripService';
 import tripTokenService from '../../utils/tripTokenService';
+import Footer from '../../components/Footer/Footer';
 
 import './DashboardPage.css';
 
@@ -129,6 +130,7 @@ class DashboardPage extends React.Component {
                 :
                 <p></p>
             }
+            <Footer />
         </div>)
     };
 };

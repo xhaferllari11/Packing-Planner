@@ -12,12 +12,13 @@
     border-color: darkcyan;
     border-width: .5px;
     margin:  auto;
-    background-color:rgba(129, 139, 139, 0.3); 
+    background-color:rgba(129, 139, 139, 0.4); 
   }
 
 .header-footer-login {
     margin-bottom: 5%;
     align-self: auto;
+    font-weight: 600;
 }
 
 .login-page-holder{

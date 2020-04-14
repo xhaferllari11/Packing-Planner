@@ -156,7 +156,6 @@ class App extends React.Component {
                 handleSignIn={this.handleSignIn}
               />} />
           </Switch>
-          <footer>Alban Xhaferllari</footer>
         </div>
       </div>);
   }

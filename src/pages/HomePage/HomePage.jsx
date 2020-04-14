@@ -2,6 +2,8 @@ import React from 'react'
 
 import SignInPage from '../SignInPage/SignInPage';
 import './HomePage.css';
+import Footer from '../../components/Footer/Footer';
+
 
 const HomePage = (props) => {
 
@@ -14,6 +16,7 @@ const HomePage = (props) => {
                 history={props.history}
             />
         }
+        <Footer />
     </div>)
 }
 

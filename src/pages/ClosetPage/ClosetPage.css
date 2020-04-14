@@ -1,7 +1,6 @@
 .closet-page {
     text-align: center;
     background-image: url('../../images/closetBackground1.jpg');
-    /* background-color: rgba(132, 234, 238, 0.5); */
 }
 .closet-items-container {
     padding-top: 8%;
@@ -9,13 +8,14 @@
     flex-wrap: wrap;
     margin: 0 20%;
     justify-content: center;
+    padding-bottom: 6%;
     /* min-height: 2000px; */
 
 }
 .closet-container{
     background-image: url('../../images/closet.png');
-    background-size: 100% auto;
-    min-height: 772px;
+    background-size: 100% 100%;
+    min-height: 100vh;
 }
 
 .closet-title{

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SignupForm from '../../components/SignUpForm/SignUpForm';
 import './SignupPage.css';
+import Footer from '../../components/Footer/Footer';
+
 
 class SignupPage extends Component {
   constructor(props) {
@@ -17,6 +19,7 @@ class SignupPage extends Component {
       <div className='SignupPage'>
         <SignupForm {...this.props} updateMessage={this.updateMessage} />
         <p>{this.state.message}</p>
+        <Footer />
       </div>
     );
   }
